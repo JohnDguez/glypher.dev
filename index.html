@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>glypher. — Design resources, ready to paste</title>
+  <meta name="description" content="A curated toolkit of SVG icons, section dividers, background patterns, and styled UI components. Copy, paste, done." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ─── Design Tokens ──────────────────────────────────────── */
+    :root {
+      --color-bg:           #0F1623;
+      --color-surface:      #1A2235;
+      --color-surface-hover:#1f2a42;
+      --color-border:       #2A3650;
+      --color-text:         #F0F4FF;
+      --color-text-muted:   #7A8BA8;
+      --color-accent:       #0683FF;
+      --color-accent-dim:   rgba(6, 131, 255, 0.12);
+      --color-accent-hover: #0570d8;
+
+      --font-ui: 'Plus Jakarta Sans', sans-serif;
+
+      --radius-card:  12px;
+      --radius-btn:   8px;
+      --radius-pill:  999px;
+
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px var(--color-border);
+      --shadow-card-hover: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px #3a4a6a;
+
+      --transition: 0.18s ease;
+    }
+
+    /* ─── Base ───────────────────────────────────────────────── */
+    body {
+      font-family: var(--font-ui);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────────── */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+    }
+
+    .page-main {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      min-width: 0;
+    }
+
+    .page-sidebar {
+      grid-column: 2;
+      grid-row: 1 / -1;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-left: 1px solid var(--color-border);
+      background: var(--color-surface);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────────── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      border-bottom: 1px solid var(--color-border);
+      background: rgba(15, 22, 35, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--color-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--color-text); }
+
+    .btn-support {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text);
+      background: transparent;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-btn);
+      padding: 0.45rem 1rem;
+      text-decoration: none;
+      transition: border-color var(--transition), color var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-support:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    .hero {
+      padding: 72px 40px 64px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      background: var(--color-accent-dim);
+      border: 1px solid rgba(6, 131, 255, 0.25);
+      border-radius: var(--radius-pill);
+      padding: 0.3rem 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-title .accent { color: var(--color-accent); }
+
+    .hero-desc {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      max-width: 440px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-accent);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-btn);
+      padding: 0.625rem 1.25rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--color-text-muted);
+      font-family: var(--font-ui);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: none;
+      padding: 0.625rem 0;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+
+    .btn-ghost:hover { color: var(--color-text); }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: -0.02em;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Search ─────────────────────────────────────────────── */
+    .search-bar-wrap {
+      padding: 0 40px 40px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0 16px;
+      height: 48px;
+      transition: border-color var(--transition);
+    }
+
+    .search-bar:focus-within {
+      border-color: var(--color-accent);
+    }
+
+    .search-bar svg {
+      flex-shrink: 0;
+      color: var(--color-text-muted);
+    }
+
+    .search-bar input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: var(--font-ui);
+      font-size: 0.875rem;
+      color: var(--color-text);
+    }
+
+    .search-bar input::placeholder { color: var(--color-text-muted); }
+
+    /* ─── Library sections ───────────────────────────────────── */
+    .library {
+      padding: 0 40px 80px;
+    }
+
+    .section {
+      margin-bottom: 52px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .see-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .see-more:hover { color: var(--color-accent); }
+
+    .see-more svg { transition: transform var(--transition); }
+    .see-more:hover svg { transform: translateX(2px); }
+
+    /* ─── Resource Grid ──────────────────────────────────────── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    .resource-card {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      aspect-ratio: 1;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .resource-card:hover {
+      border-color: #3a4a6a;
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .resource-card.active {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 1px var(--color-accent), 0 4px 20px rgba(6,131,255,0.2);
+    }
+
+    .card-preview {
+      width: 100%;
+      height: calc(100% - 36px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .card-preview svg {
+      width: 24px;
+      height: 24px;
+      color: var(--color-text);
+    }
+
+    /* For dividers/patterns: fill preview area */
+    .card-preview.is-divider svg,
+    .card-preview.is-pattern svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-footer {
+      padding: 0 10px 8px;
+    }
+
+    .card-name {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .card-type {
+      font-size: 0.625rem;
+      font-weight: 600;
+      color: var(--color-border);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Hover overlay */
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 22, 35, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity var(--transition);
+      border-radius: calc(var(--radius-card) - 1px);
+    }
+
+    .resource-card:hover .card-overlay { opacity: 1; }
+
+    .overlay-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-family: var(--font-ui);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 0.35rem 0.75rem;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: transform var(--transition), background var(--transition);
+      width: 80%;
+    }
+
+    .overlay-btn:hover { transform: translateY(-1px); }
+
+    .overlay-btn.copy {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .overlay-btn.preview {
+      background: rgba(240, 244, 255, 0.1);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ─── Preview Sidebar ────────────────────────────────────── */
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .sidebar-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .sidebar-resource-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .sidebar-preview-area {
+      flex-shrink: 0;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+      padding: 24px;
+    }
+
+    .sidebar-preview-area svg {
+      max-width: 100%;
+      max-height: 100%;
+      color: var(--color-text);
+    }
+
+    .sidebar-controls {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-bottom: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .control-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    .control-value {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      flex-shrink: 0;
+    }
+
+    /* Color swatch + input */
+    .color-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .color-input-text {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 5px;
+      padding: 3px 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--color-text);
+      width: 80px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .color-input-text:focus { border-color: var(--color-accent); }
+
+    /* Slider */
+    .slider-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 3px;
+      background: var(--color-border);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      border: 2px solid var(--color-bg);
+      box-shadow: 0 0 0 1px var(--color-accent);
+      cursor: pointer;
+      transition: transform var(--transition);
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+    /* Code block */
+    .sidebar-code {
+      flex: 1;
+      overflow: auto;
+      padding: 16px 20px;
+      min-height: 0;
+    }
+
+    .code-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .code-block {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.6875rem;
+      color: #a8c0e8;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Sidebar actions */
+    .sidebar-actions {
+      padding: 16px 20px;
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    .action-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-ui);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      border-radius: var(--radius-btn);
+      padding: 0.5625rem 0;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .action-btn:hover { transform: translateY(-1px); }
+
+    .action-btn.primary {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .action-btn.primary:hover { background: var(--color-accent-hover); }
+
+    .action-btn.secondary {
+      background: var(--color-bg);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .action-btn.secondary:hover { border-color: #3a4a6a; }
+
+    /* ─── Utilities ──────────────────────────────────────────── */
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page-layout">
+
+  <!-- ── MAIN COLUMN ──────────────────────────────────────── -->
+  <main class="page-main">
+
+    <!-- Nav -->
+    <header class="nav" role="banner">
+      <a href="/" class="nav-logo" aria-label="Glypher home">glypher<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="/library.html">Library</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#" class="btn-support">Support Glypher</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-eyebrow" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+        Open Source · MIT License
+      </div>
+      <h1 class="hero-title" id="hero-heading">
+        Design resources,<br>
+        ready to <span class="accent">paste</span>
+      </h1>
+      <p class="hero-desc">
+        A curated toolkit of SVG icons, section dividers,
+        background patterns, and styled UI components.
+        Copy, paste, done.
+      </p>
+      <div class="hero-actions">
+        <a href="/library.html" class="btn-primary">
+          Browse the Library
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" class="btn-ghost">
+          View on GitHub
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats" role="list" aria-label="Library stats">
+        <div role="listitem">
+          <span class="stat-value">+500</span>
+          <span class="stat-label">Resources</span>
+        </div>
+        <div role="listitem">
+          <span class="stat-value">5</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div role="listitem">
+          <span class="stat-value">Free</span>
+          <span class="stat-label">MIT License</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <div class="search-bar-wrap">
+      <div class="search-bar" role="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input
+          type="search"
+          id="homepage-search"
+          placeholder="Search +500 resources..."
+          aria-label="Search resources"
+        />
+      </div>
+    </div>
+
+    <!-- Resource library sections -->
+    <div class="library" id="library-preview">
+
+      <!-- ICONS -->
+      <section class="section" aria-labelledby="section-icons">
+        <div class="section-header">
+          <h2 class="section-title" id="section-icons">Icons</h2>
+          <a href="/library.html?category=icons" class="see-more">
+            See more
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="resource-grid" id="grid-icons" role="list" aria-label="Icon resources"></div>
+      </section>
+
+      <!-- DIVIDERS -->
+      <section class="section" aria-labelledby="section-dividers">
+        <div class="section-header">
+          <h2 class="section-title" id="section-dividers">Dividers</h2>
+          <a href="/library.html?category=dividers" class="see-more">
+            See more
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="resource-grid" id="grid-dividers" role="list" aria-label="Divider resources"></div>
+      </section>
+
+      <!-- PATTERNS -->
+      <section class="section" aria-labelledby="section-patterns">
+        <div class="section-header">
+          <h2 class="section-title" id="section-patterns">Patterns</h2>
+          <a href="/library.html?category=patterns" class="see-more">
+            See more
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="resource-grid" id="grid-patterns" role="list" aria-label="Pattern resources"></div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="section" aria-labelledby="section-buttons">
+        <div class="section-header">
+          <h2 class="section-title" id="section-buttons">Buttons &amp; UI</h2>
+          <a href="/library.html?category=buttons" class="see-more">
+            See more
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="resource-grid" id="grid-buttons" role="list" aria-label="Button resources"></div>
+      </section>
+
+    </div><!-- /library -->
+
+  </main><!-- /page-main -->
+
+  <!-- ── PREVIEW SIDEBAR ──────────────────────────────────── -->
+  <aside class="page-sidebar" id="preview-sidebar" aria-label="Resource preview">
+
+    <div class="sidebar-header">
+      <span class="sidebar-label">Preview</span>
+      <span class="sidebar-resource-name" id="sidebar-name">—</span>
+    </div>
+
+    <!-- Live preview -->
+    <div class="sidebar-preview-area" id="sidebar-preview" aria-live="polite" aria-label="Live resource preview"></div>
+
+    <!-- Controls -->
+    <div class="sidebar-controls" id="sidebar-controls">
+
+      <!-- Color -->
+      <div class="control-row">
+        <span class="control-label">Color</span>
+        <div class="color-control">
+          <input type="color" id="ctrl-color" value="#F0F4FF" class="color-swatch" aria-label="Primary color" title="Pick color" />
+          <input type="text"  id="ctrl-color-hex" value="#F0F4FF" class="color-input-text" maxlength="7" spellcheck="false" aria-label="Color hex value" />
+        </div>
+      </div>
+
+      <!-- Stroke Width (icons only) -->
+      <div class="control-row" id="ctrl-row-stroke">
+        <span class="control-label">Stroke Width</span>
+        <div class="slider-wrap">
+          <input type="range" id="ctrl-stroke" min="0.5" max="3" step="0.25" value="1.5" aria-label="Stroke width" />
+        </div>
+        <span class="control-value" id="ctrl-stroke-val">1.5 px</span>
+      </div>
+
+      <!-- Size (icons only) -->
+      <div class="control-row" id="ctrl-row-size">
+        <span class="control-label">Size</span>
+        <div class="slider-wrap">
+          <input type="range" id="ctrl-size" min="16" max="96" step="4" value="60" aria-label="Icon size" />
+        </div>
+        <span class="control-value" id="ctrl-size-val">60 px</span>
+      </div>
+
+    </div><!-- /sidebar-controls -->
+
+    <!-- Code output -->
+    <div class="sidebar-code">
+      <div class="code-label">Code</div>
+      <pre class="code-block" id="sidebar-code" aria-label="Resource code output" aria-live="polite"></pre>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="sidebar-actions">
+      <button class="action-btn primary" id="btn-copy" aria-label="Copy resource code">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy SVG
+      </button>
+      <button class="action-btn secondary" id="btn-download" aria-label="Download resource file">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </button>
+    </div>
+
+  </aside>
+
+</div><!-- /page-layout -->
+
+<script>
+// ─── State ──────────────────────────────────────────────────
+let resources = [];
+let activeResource = null;
+
+// ─── Fetch data ──────────────────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch('data/resources.json');
+    resources = await res.json();
+  } catch {
+    // Fallback: use inline sample so the page works without a server
+    resources = getSampleResources();
+  }
+  renderAllSections();
+  selectResource(resources[0]);
+}
+
+// ─── Render sections ─────────────────────────────────────────
+function renderAllSections() {
+  const categories = ['icons', 'dividers', 'patterns', 'buttons'];
+  categories.forEach(cat => {
+    const grid = document.getElementById(`grid-${cat}`);
+    if (!grid) return;
+    const items = resources.filter(r => r.category === cat).slice(0, 6);
+    grid.innerHTML = '';
+    items.forEach(r => grid.appendChild(createCard(r)));
+  });
+}
+
+function createCard(resource) {
+  const card = document.createElement('article');
+  card.className = 'resource-card';
+  card.setAttribute('role', 'listitem');
+  card.setAttribute('aria-label', `${resource.name} ${resource.category}`);
+  card.dataset.id = resource.id;
+  card.tabIndex = 0;
+
+  const isDivider = resource.category === 'dividers';
+  const isPattern = resource.category === 'patterns';
+  const previewClass = isDivider ? 'card-preview is-divider' : isPattern ? 'card-preview is-pattern' : 'card-preview';
+
+  card.innerHTML = `
+    <div class="${previewClass}" aria-hidden="true">
+      ${resource.svg || ''}
+    </div>
+    <div class="card-footer">
+      <span class="card-name">${resource.name}</span>
+      <span class="card-type">${resource.category}</span>
+    </div>
+    <div class="card-overlay" aria-hidden="true">
+      <button class="overlay-btn copy" data-id="${resource.id}">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        COPY SVG
+      </button>
+      <button class="overlay-btn preview" data-id="${resource.id}">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        PREVIEW
+      </button>
+    </div>
+  `;
+
+  // Click anywhere on card → select it
+  card.addEventListener('click', (e) => {
+    // If overlay button was clicked, handle separately
+    if (e.target.closest('.overlay-btn.copy')) {
+      copyResource(resource);
+      return;
+    }
+    selectResource(resource);
+  });
+
+  // Keyboard support
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      selectResource(resource);
+    }
+  });
+
+  return card;
+}
+
+// ─── Select & preview ────────────────────────────────────────
+function selectResource(resource) {
+  if (!resource) return;
+  activeResource = resource;
+
+  // Update active card highlight
+  document.querySelectorAll('.resource-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.id === resource.id);
+  });
+
+  // Update sidebar name
+  document.getElementById('sidebar-name').textContent = resource.name;
+
+  // Show/hide controls per category
+  const isIcon = resource.category === 'icons';
+  document.getElementById('ctrl-row-stroke').style.display = isIcon ? '' : 'none';
+  document.getElementById('ctrl-row-size').style.display   = isIcon ? '' : 'none';
+
+  // Update copy button label
+  const isCss = resource.category === 'buttons' || resource.category === 'styles';
+  document.getElementById('btn-copy').innerHTML = `
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    ${isCss ? 'Copy CSS' : 'Copy SVG'}
+  `;
+
+  renderPreview();
+}
+
+function renderPreview() {
+  if (!activeResource) return;
+
+  const color  = document.getElementById('ctrl-color').value;
+  const stroke = document.getElementById('ctrl-stroke').value;
+  const size   = document.getElementById('ctrl-size').value;
+
+  let svg = activeResource.svg || '';
+
+  // Apply live color to stroke/fill
+  svg = svg.replace(/stroke="currentColor"/g, `stroke="${color}"`);
+  svg = svg.replace(/fill="currentColor"/g,   `fill="${color}"`);
+
+  // Apply stroke width for icons
+  if (activeResource.category === 'icons') {
+    svg = svg.replace(/stroke-width="[^"]*"/g, `stroke-width="${stroke}"`);
+    svg = svg.replace(/width="24"/g,  `width="${size}"`);
+    svg = svg.replace(/height="24"/g, `height="${size}"`);
+  }
+
+  // Preview area
+  const previewArea = document.getElementById('sidebar-preview');
+  if (activeResource.category === 'buttons' || activeResource.category === 'styles') {
+    // Render CSS component preview
+    previewArea.innerHTML = `<style>${activeResource.css}</style><button class="${activeResource.id}">Button</button>`;
+  } else {
+    previewArea.innerHTML = svg;
+    // Scale preview nicely
+    const svgEl = previewArea.querySelector('svg');
+    if (svgEl) {
+      svgEl.style.maxWidth  = '100%';
+      svgEl.style.maxHeight = '100%';
+    }
+  }
+
+  // Code block — always shows current color applied
+  const codeOutput = activeResource.category === 'buttons'
+    ? activeResource.css
+    : svg;
+
+  document.getElementById('sidebar-code').textContent = codeOutput;
+}
+
+// ─── Controls ────────────────────────────────────────────────
+const colorPicker = document.getElementById('ctrl-color');
+const colorHex    = document.getElementById('ctrl-color-hex');
+const strokeSlider = document.getElementById('ctrl-stroke');
+const sizeSlider   = document.getElementById('ctrl-size');
+
+colorPicker.addEventListener('input', () => {
+  colorHex.value = colorPicker.value.toUpperCase();
+  renderPreview();
+});
+
+colorHex.addEventListener('input', () => {
+  const val = colorHex.value.trim();
+  if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+    colorPicker.value = val;
+    renderPreview();
+  }
+});
+
+strokeSlider.addEventListener('input', () => {
+  document.getElementById('ctrl-stroke-val').textContent = `${strokeSlider.value} px`;
+  renderPreview();
+});
+
+sizeSlider.addEventListener('input', () => {
+  document.getElementById('ctrl-size-val').textContent = `${sizeSlider.value} px`;
+  renderPreview();
+});
+
+// ─── Copy ────────────────────────────────────────────────────
+function copyResource(resource) {
+  if (!resource) return;
+  const code = resource.category === 'buttons' ? resource.css : resource.svg;
+  navigator.clipboard.writeText(code).then(() => {
+    showCopiedFeedback();
+  });
+}
+
+document.getElementById('btn-copy').addEventListener('click', () => {
+  copyResource(activeResource);
+});
+
+function showCopiedFeedback() {
+  const btn = document.getElementById('btn-copy');
+  const original = btn.innerHTML;
+  btn.innerHTML = `
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    Copied!
+  `;
+  btn.style.background = '#16a34a';
+  setTimeout(() => {
+    btn.innerHTML = original;
+    btn.style.background = '';
+  }, 1800);
+}
+
+// ─── Download ────────────────────────────────────────────────
+document.getElementById('btn-download').addEventListener('click', () => {
+  if (!activeResource) return;
+  const isCss = activeResource.category === 'buttons' || activeResource.category === 'styles';
+  const content = isCss ? activeResource.css : activeResource.svg;
+  const ext = isCss ? 'css' : 'svg';
+  const blob = new Blob([content], { type: isCss ? 'text/css' : 'image/svg+xml' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `${activeResource.id}.${ext}`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ─── Search redirect ─────────────────────────────────────────
+document.getElementById('homepage-search').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const q = e.target.value.trim();
+    if (q) window.location.href = `/library.html?q=${encodeURIComponent(q)}`;
+  }
+});
+
+// ─── Inline sample data (fallback) ───────────────────────────
+function getSampleResources() {
+  return [
+    { id: 'arrow-right-01', name: 'Arrow Right', category: 'icons', tags: ['arrow'], svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>', css: '', preview_bg: '#1A2235', added: '2025-01' },
+    { id: 'home-01', name: 'Home', category: 'icons', tags: ['home'], svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>', css: '', preview_bg: '#1A2235', added: '2025-01' },
+    { id: 'star-01', name: 'Star', category: 'icons', tags: ['star'], svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>', css: '', preview_bg: '#1A2235', added: '2025-01' },
+    { id: 'wave-divider-01', name: 'Wave', category: 'dividers', tags: ['wave'], svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z" fill="currentColor"/></svg>', css: '', preview_bg: '#0F1623', added: '2025-01' },
+    { id: 'dots-pattern-01', name: 'Dots', category: 'patterns', tags: ['dots'], svg: '<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><circle cx="5" cy="5" r="2" fill="currentColor" opacity="0.5"/><circle cx="35" cy="35" r="2" fill="currentColor" opacity="0.5"/></svg>', css: '', preview_bg: '#0F1623', added: '2025-01' },
+    { id: 'btn-primary-01', name: 'Primary Button', category: 'buttons', tags: ['button'], svg: '', css: '.btn-primary { display:inline-flex; align-items:center; padding:0.625rem 1.25rem; background:#0683FF; color:#fff; font-size:0.875rem; font-weight:600; border:none; border-radius:8px; cursor:pointer; }', preview_bg: '#1A2235', added: '2025-01' }
+  ];
+}
+
+// ─── Boot ────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "arrow-right-01",
+    "name": "Arrow Right",
+    "category": "icons",
+    "tags": ["arrow", "direction", "navigation"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg>",
+    "css": "",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  },
+  {
+    "id": "home-01",
+    "name": "Home",
+    "category": "icons",
+    "tags": ["home", "house", "navigation"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z\"/><path d=\"M9 21V12h6v9\"/></svg>",
+    "css": "",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  },
+  {
+    "id": "star-01",
+    "name": "Star",
+    "category": "icons",
+    "tags": ["star", "favorite", "rating"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg>",
+    "css": "",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  },
+  {
+    "id": "wave-divider-01",
+    "name": "Wave",
+    "category": "dividers",
+    "tags": ["wave", "organic", "smooth"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 80\" preserveAspectRatio=\"none\"><path d=\"M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z\" fill=\"currentColor\"/></svg>",
+    "css": "",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "zigzag-divider-01",
+    "name": "Zigzag",
+    "category": "dividers",
+    "tags": ["zigzag", "geometric", "sharp"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 60\" preserveAspectRatio=\"none\"><polyline points=\"0,0 60,60 120,0 180,60 240,0 300,60 360,0 420,60 480,0 540,60 600,0 660,60 720,0 780,60 840,0 900,60 960,0 1020,60 1080,0 1140,60 1200,0 1260,60 1320,0 1380,60 1440,0 1440,60 0,60\" fill=\"currentColor\"/></svg>",
+    "css": "",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "tilt-divider-01",
+    "name": "Tilt",
+    "category": "dividers",
+    "tags": ["tilt", "diagonal", "geometric"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 60\" preserveAspectRatio=\"none\"><polygon points=\"0,0 1440,60 1440,60 0,60\" fill=\"currentColor\"/></svg>",
+    "css": "",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "dots-pattern-01",
+    "name": "Dots",
+    "category": "patterns",
+    "tags": ["dots", "minimal", "grid"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\"><circle cx=\"2\" cy=\"2\" r=\"1.5\" fill=\"currentColor\" opacity=\"0.4\"/></svg>",
+    "css": "background-image: url(\"data:image/svg+xml,...\"); background-size: 20px 20px;",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "grid-pattern-01",
+    "name": "Grid",
+    "category": "patterns",
+    "tags": ["grid", "lines", "geometric"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\"><path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.3\"/></svg>",
+    "css": "background-image: url(\"data:image/svg+xml,...\"); background-size: 40px 40px;",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "diagonal-pattern-01",
+    "name": "Diagonal Lines",
+    "category": "patterns",
+    "tags": ["diagonal", "lines", "stripes"],
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"10\" height=\"10\"><line x1=\"0\" y1=\"10\" x2=\"10\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"0.75\" opacity=\"0.25\"/></svg>",
+    "css": "background-image: url(\"data:image/svg+xml,...\"); background-size: 10px 10px;",
+    "preview_bg": "#0F1623",
+    "added": "2025-01"
+  },
+  {
+    "id": "btn-primary-01",
+    "name": "Primary Button",
+    "category": "buttons",
+    "tags": ["button", "primary", "solid"],
+    "svg": "",
+    "css": ".btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.625rem 1.25rem; background-color: #0683FF; color: #F0F4FF; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s ease; } .btn-primary:hover { background-color: #0570d8; }",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  },
+  {
+    "id": "btn-outline-01",
+    "name": "Outline Button",
+    "category": "buttons",
+    "tags": ["button", "outline", "ghost"],
+    "svg": "",
+    "css": ".btn-outline { display: inline-flex; align-items: center; justify-content: center; padding: 0.625rem 1.25rem; background-color: transparent; color: #F0F4FF; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; border: 1.5px solid #2A3650; border-radius: 8px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease; } .btn-outline:hover { border-color: #0683FF; color: #0683FF; }",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  },
+  {
+    "id": "badge-01",
+    "name": "Badge",
+    "category": "buttons",
+    "tags": ["badge", "tag", "label"],
+    "svg": "",
+    "css": ".badge { display: inline-flex; align-items: center; padding: 0.25rem 0.625rem; background-color: rgba(6, 131, 255, 0.12); color: #0683FF; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 600; border-radius: 999px; letter-spacing: 0.02em; }",
+    "preview_bg": "#1A2235",
+    "added": "2025-01"
+  }
+]

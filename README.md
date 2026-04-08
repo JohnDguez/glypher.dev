@@ -24,7 +24,7 @@ Glypher is a curated open-source library of SVG icons, section dividers, backgro
 
 No install, no account, no build step required.
 
-1. Visit [glypher.dev](https://glypher.dev)
+1. Visit [glypher](https://glypher-iota.vercel.app/)
 2. Browse or search the library
 3. Click a resource to preview and customize it
 4. Copy the code — it's ready to paste

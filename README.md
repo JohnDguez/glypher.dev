@@ -4,7 +4,7 @@
 
 Glypher is a curated open-source library of SVG icons, section dividers, background patterns, and styled UI components for frontend developers and designers. Every resource is hand-curated by a professional graphic designer — not mass-generated or algorithmically scraped.
 
-🔗 [glypher.dev](https://glypher.dev) · MIT License · Free forever
+🔗 [glypher](https://glypher-iota.vercel.app/) · MIT License · Free forever
 
 ---
 
